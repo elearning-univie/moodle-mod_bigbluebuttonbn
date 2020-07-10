@@ -2499,7 +2499,8 @@ function bigbluebuttonbn_get_instance_type_profiles() {
             'features' => array('showroom', 'welcomemessage', 'voicebridge', 'waitformoderator', 'userlimit',
                 'recording', 'sendnotifications', 'preuploadpresentation', 'permissions', 'schedule', 'groups',
                 'modstandardelshdr', 'availabilityconditionsheader', 'tagshdr', 'competenciessection',
-                'clienttype', 'completionattendance', 'completionengagement', 'availabilityconditionsheader')),
+                'clienttype', 'completionattendance', 'completionengagement', 'availabilityconditionsheader',
+                'viewguestlink', 'changeguestlinkpass')),
         BIGBLUEBUTTONBN_TYPE_RECORDING_ONLY => array('id' => BIGBLUEBUTTONBN_TYPE_RECORDING_ONLY,
             'name' => get_string('instance_type_recording_only', 'bigbluebuttonbn'),
             'features' => array('showrecordings', 'importrecordings', 'availabilityconditionsheader')),
@@ -2522,6 +2523,10 @@ function bigbluebuttonbn_get_enabled_features($typeprofiles, $type = null) {
         $features = $typeprofiles[$type]['features'];
     }
     $enabledfeatures['showroom'] = (in_array('all', $features) || in_array('showroom', $features));
+    if (\mod_bigbluebuttonbn\locallib\config::guestlinks_enabled()) {
+        $enabledfeatures['viewguestlink'] = (in_array('all', $features) || in_array('viewguestlink', $features));
+        $enabledfeatures['changeguestlinkpass'] = (in_array('all', $features) || in_array('changeguestlinkpass', $features));
+    }
     // Evaluates if recordings are enabled for the Moodle site.
     $enabledfeatures['showrecordings'] = false;
     if (\mod_bigbluebuttonbn\locallib\config::recordings_enabled()) {
@@ -2969,6 +2974,14 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
     // Configuration for defining the default role/user that will be moderator on new activities.
     if ((boolean) \mod_bigbluebuttonbn\settings\validator::section_moderator_default_shown()) {
         $renderer->render_group_header('participant');
+        $renderer->render_group_element(
+            'participant_guestlink',
+            $renderer->render_group_element_checkbox('participant_guestlink', 0)
+        );
+        $renderer->render_group_element(
+            'participant_guestlink_logo',
+            $renderer->render_group_element_text('custom_logo', '')
+            );
         // UI for 'participants' feature.
         $roles = bigbluebuttonbn_get_roles(null, false);
         $owner = array('0' => get_string('mod_form_field_participant_list_type_owner', 'bigbluebuttonbn'));
@@ -3508,4 +3521,50 @@ function bigbluebuttonbn_create_meeting_metadata(&$bbbsession) {
         $metadata['analytics-callback-url'] = $bbbsession['meetingEventsURL'];
     }
     return $metadata;
+}
+
+/**
+ * Helper for preparing data used while joining the meeting.
+ *
+ * @param array    $bbbsession
+ * @param object   $bigbluebuttonbn
+ * @param integer  $origin
+ */
+function bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, $origin = 0) {
+    // Update the cache.
+    $meetinginfo = bigbluebuttonbn_get_meeting_info($bbbsession['meetingid'], BIGBLUEBUTTONBN_UPDATE_CACHE);
+    if ($bbbsession['userlimit'] > 0 && intval($meetinginfo['participantCount']) >= $bbbsession['userlimit']) {
+        // No more users allowed to join.
+        header('Location: '.$bbbsession['logoutURL']);
+        return;
+    }
+    // Build the URL.
+    $password = $bbbsession['viewerPW'];
+    if ($bbbsession['administrator'] || $bbbsession['moderator']) {
+        $password = $bbbsession['modPW'];
+    }
+    $joinurl = bigbluebuttonbn_get_join_url($bbbsession['meetingid'], $bbbsession['username'],
+        $password, $bbbsession['logoutURL'], null, $bbbsession['userID'], $bbbsession['clienttype']);
+    // Moodle event logger: Create an event for meeting joined.
+    bigbluebuttonbn_event_log(\mod_bigbluebuttonbn\event\events::$events['meeting_join'], $bigbluebuttonbn);
+    // Internal logger: Instert a record with the meeting created.
+    $overrides = array('meetingid' => $bbbsession['meetingid']);
+    $meta = '{"origin":'.$origin.'}';
+    bigbluebuttonbn_log($bbbsession['bigbluebuttonbn'], BIGBLUEBUTTONBN_LOG_EVENT_JOIN, $overrides, $meta);
+    // Before executing the redirect, increment the number of participants.
+    bigbluebuttonbn_participant_joined($bbbsession['meetingid'],
+        ($bbbsession['administrator'] || $bbbsession['moderator']));
+    // Execute the redirect.
+    header('Location: '.$joinurl);
+}
+
+/**
+ * Helperfunction for getting the bigbluebutton instance with guestlink id
+ *
+ * @param string $guestlinkid
+ * @return mixed|stdClass|false
+ */
+function bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid(string $guestlinkid) {
+    global $DB;
+    return $DB->get_record('bigbluebuttonbn', ['guestlinkid' => $guestlinkid]);
 }

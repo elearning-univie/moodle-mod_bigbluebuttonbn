@@ -65,3 +65,60 @@
 .bbb_index_form {
     display: inline-block;
 }
+
+.mod_bigbluebuttonbn_guestlink_view .readonly {
+    background-color: #f8f9fa;
+    opacity: 1;
+}
+
+.bigbluebuttonbn-guestaccess-view html body{
+    font-family: "Source Sans Pro";
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.bigbluebuttonbn-guestaccess-view .header {
+    height: 10%;
+}
+.bigbluebuttonbn-guestaccess-view .warning{
+    color: #a94442;
+}
+.bigbluebuttonbn-guestaccess-view .wrapper {
+    padding-top: 15px;
+    position: relative;
+    height: 300px;
+}
+
+.bigbluebuttonbn-guestaccess-view .shiftrow {
+    margin-top: 5px;
+    padding-right: 0px;
+}
+.bigbluebuttonbn-guestaccess-view .inputbutton{
+    padding-left: 0px;
+    min-width: 150px;
+}
+.bigbluebuttonbn-guestaccess-view .footer {
+    height: 10%;
+    width: 100%;
+}
+
+.bigbluebuttonbn-guestaccess-view .background {
+    background-color: #F5F7FB;
+}
+.bigbluebuttonbn-guestaccess-view .font-weight-400 {
+    font-weight: 400;
+}
+
+.bigbluebuttonbn-guestaccess-view .force-text-normal {
+    color: #495057;
+}
+
+.bigbluebuttonbn-guestaccess-view .header-brand-img .icon, .bigbluebuttonbn-guestaccess-view .header-brand-img img {
+    height: 2rem;
+    max-height: 2rem;
+    line-height: 2rem;
+    margin-right: .5rem;
+    width: auto;
+}

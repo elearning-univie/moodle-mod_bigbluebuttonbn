@@ -230,6 +230,33 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
         // Update db version tag.
         upgrade_mod_savepoint(true, 2019101001, 'bigbluebuttonbn');
     }
+    if ($oldversion < 2020072001) {
+        // Add field for guestlinkenabled.
+        $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+        xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'guestlinkenabled', $fielddefinition);
+        // Add field for guestlinkid.
+        $fielddefinition = array('type' => XMLDB_TYPE_CHAR, 'precision' => '255', 'unsigned' => null,
+            'notnull' => null, 'sequence' => null, 'default' => null, 'previous' => null);
+        xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'guestlinkid', $fielddefinition);
+        // Add field for guestpass.
+        $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '10', 'unsigned' => null,
+            'notnull' => null, 'sequence' => null, 'default' => null, 'previous' => null);
+        xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'guestpass', $fielddefinition);
+        try {
+            global $DB;
+            $transaction = $DB->start_delegated_transaction();
+            $instances = $DB->get_recordset_select('bigbluebuttonbn', null, null, 'id');
+            foreach ($instances as $instance) {
+                $DB->set_field('bigbluebuttonbn', 'guestlinkid', bigbluebuttonbn_random_password(12), ['id' => $instance->id]);
+            }
+            $transaction->allow_commit();
+        } catch (Exception $e) {
+            $transaction->rollback($e);
+            throw($e);
+        }
+        upgrade_mod_savepoint(true, 2020072001, 'bigbluebuttonbn');
+    }
     return true;
 }
 

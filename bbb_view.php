@@ -40,6 +40,7 @@ $timeline = optional_param('timeline', 0, PARAM_INT);
 $index = optional_param('index', 0, PARAM_INT);
 $group = optional_param('group', -1, PARAM_INT);
 
+
 $bbbviewinstance = bigbluebuttonbn_view_validator($id, $bn);
 if (!$bbbviewinstance) {
     print_error(get_string('view_error_url_missing_parameters', 'bigbluebuttonbn'));
@@ -158,7 +159,7 @@ switch (strtolower($action)) {
         // See if the session is in progress.
         if (bigbluebuttonbn_is_meeting_running($bbbsession['meetingid'])) {
             // Since the meeting is already running, we just join the session.
-            bigbluebuttonbn_bbb_view_join_meeting($bbbsession, $bigbluebuttonbn, $origin);
+            bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, $origin);
             break;
         }
         // If user is not administrator nor moderator (user is steudent) and waiting is required.
@@ -210,7 +211,7 @@ switch (strtolower($action)) {
         $meta = '{"record":'.($bbbsession['record'] ? 'true' : 'false').'}';
         bigbluebuttonbn_log($bbbsession['bigbluebuttonbn'], BIGBLUEBUTTONBN_LOG_EVENT_CREATE, $overrides, $meta);
         // Since the meeting is already running, we just join the session.
-        bigbluebuttonbn_bbb_view_join_meeting($bbbsession, $bigbluebuttonbn, $origin);
+        bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, $origin);
         break;
     case 'play':
         $href = bigbluebuttonbn_bbb_view_playback_href($href, $mid, $rid, $rtype);
@@ -369,40 +370,7 @@ function bigbluebuttonbn_bbb_view_create_meeting_metadata(&$bbbsession) {
     return bigbluebuttonbn_create_meeting_metadata($bbbsession);
 }
 
-/**
- * Helper for preparing data used while joining the meeting.
- *
- * @param array    $bbbsession
- * @param object   $bigbluebuttonbn
- * @param integer  $origin
- */
-function bigbluebuttonbn_bbb_view_join_meeting($bbbsession, $bigbluebuttonbn, $origin = 0) {
-    // Update the cache.
-    $meetinginfo = bigbluebuttonbn_get_meeting_info($bbbsession['meetingid'], BIGBLUEBUTTONBN_UPDATE_CACHE);
-    if ($bbbsession['userlimit'] > 0 && intval($meetinginfo['participantCount']) >= $bbbsession['userlimit']) {
-        // No more users allowed to join.
-        header('Location: '.$bbbsession['logoutURL']);
-        return;
-    }
-    // Build the URL.
-    $password = $bbbsession['viewerPW'];
-    if ($bbbsession['administrator'] || $bbbsession['moderator']) {
-        $password = $bbbsession['modPW'];
-    }
-    $joinurl = bigbluebuttonbn_get_join_url($bbbsession['meetingid'], $bbbsession['username'],
-        $password, $bbbsession['logoutURL'], null, $bbbsession['userID'], $bbbsession['clienttype']);
-    // Moodle event logger: Create an event for meeting joined.
-    bigbluebuttonbn_event_log(\mod_bigbluebuttonbn\event\events::$events['meeting_join'], $bigbluebuttonbn);
-    // Internal logger: Instert a record with the meeting created.
-    $overrides = array('meetingid' => $bbbsession['meetingid']);
-    $meta = '{"origin":'.$origin.'}';
-    bigbluebuttonbn_log($bbbsession['bigbluebuttonbn'], BIGBLUEBUTTONBN_LOG_EVENT_JOIN, $overrides, $meta);
-    // Before executing the redirect, increment the number of participants.
-    bigbluebuttonbn_participant_joined($bbbsession['meetingid'],
-        ($bbbsession['administrator'] || $bbbsession['moderator']));
-    // Execute the redirect.
-    header('Location: '.$joinurl);
-}
+
 
 /**
  * Helper for showinf error messages if any.

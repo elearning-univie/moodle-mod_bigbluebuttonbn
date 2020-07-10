@@ -698,6 +698,7 @@ function bigbluebuttonbn_process_pre_save_instance(&$bigbluebuttonbn) {
         // As it is a new activity, assign passwords.
         $bigbluebuttonbn->moderatorpass = bigbluebuttonbn_random_password(12);
         $bigbluebuttonbn->viewerpass = bigbluebuttonbn_random_password(12, $bigbluebuttonbn->moderatorpass);
+        $bigbluebuttonbn->guestlinkid = bigbluebuttonbn_random_password(12);
     }
 }
 
@@ -1113,6 +1114,9 @@ function bigbluebuttonbn_check_updates_since(cm_info $cm, $from, $filter = array
 function mod_bigbluebuttonbn_get_fontawesome_icon_map() {
     return [
         'mod_bigbluebuttonbn:icon' => 'icon-bigbluebutton',
+        'mod_bigbluebuttonbn:t/copy' => 'fa-copy',
+        'mod_bigbluebuttonbn:t/random' => 'fa-repeat',
+        'mod_bigbluebuttonbn:t/trash' => 'fa-trash',
     ];
 }
 
