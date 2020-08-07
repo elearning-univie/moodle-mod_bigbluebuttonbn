@@ -19,6 +19,7 @@ Feature: Within a moodle instance, an administrator should be able to set the va
   Scenario: Switch as an admin to the adminsettings of the module bigbluebuttonbn and change the value of "Allow guest access links" to "Yes". Then login as a teacher and add a new bigbluebuttonbn to a course and check whether the settings for an access guest link is visible.
    Given I log in as "admin"
     And I navigate to "Plugins > Activity modules > BigBlueButtonBN" in site administration
+    Then the field "Allow guest access links" matches value "0"
     And I set the field "Allow guest access links" to "1"
     And I press "Save changes"
     And I log out
@@ -33,7 +34,7 @@ Feature: Within a moodle instance, an administrator should be able to set the va
     And I expand all fieldsets
     Then I should see "External guest access link"
     And I should see "Create guest access link for external participants."
-    #Then the field "Create guest access link for external participants." matches value "1"
+    And the field "Create guest access link for external participants." matches value "0"
 
     Then I log out
 
