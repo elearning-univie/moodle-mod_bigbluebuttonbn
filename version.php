@@ -31,4 +31,4 @@ $plugin->requires = 2016120500;
 $plugin->cron = 0;
 $plugin->component = 'mod_bigbluebuttonbn';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = 'v2.4_univie';
+$plugin->release = 'v2.4.0_univie';
