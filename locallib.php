@@ -2844,6 +2844,10 @@ function bigbluebuttonbn_settings_waitmoderator(&$renderer) {
             'waitformoderator_cache_ttl',
             $renderer->render_group_element_text('waitformoderator_cache_ttl', 60, PARAM_INT)
         );
+        $renderer->render_group_element(
+            'waitformoderator_waitingroom',
+            $renderer->render_group_element_checkbox('waitformoderator_waitingroom', 0)
+            );
     }
 }
 
