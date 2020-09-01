@@ -55,7 +55,8 @@ class backup_bigbluebuttonbn_activity_structure_step extends backup_activity_str
                             'clienttype', 'muteonstart', 'completionattendance',
                             'completionengagementchats', 'completionengagementtalks', 'completionengagementraisehand',
                             'completionengagementpollvotes', 'completionengagementemojis', 'guestlinkenabled',
-                            'waitingroom'
+                            'waitingroom', 'enableviewerswebcams', 'seeviewerswebcams', 'enablemic',
+                            'enablepublicchat', 'enableprivatechat', 'enablenotes', 'visibleuserlist',
         ));
 
         $logs = new backup_nested_element('logs');

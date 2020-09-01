@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/bigbluebuttonbn/db" VERSION="20200714" COMMENT="XMLDB file for Moodle mod/bigbluebuttonbn"
+<XMLDB PATH="mod/bigbluebuttonbn/db" VERSION="20200831" COMMENT="XMLDB file for Moodle mod/bigbluebuttonbn"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
@@ -44,6 +44,13 @@
         <FIELD NAME="guestlinkid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="guestpass" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="waitingroom" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="enableviewerswebcams" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;lockSettingsDisableCam&quot;"/>
+        <FIELD NAME="seeviewerswebcams" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;webcamsOnlyForModerator&quot;"/>
+        <FIELD NAME="enablemic" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;lockSettingsDisableMic&quot;"/>
+        <FIELD NAME="enablepublicchat" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;lockSettingsDisablePublicChat&quot;"/>
+        <FIELD NAME="enableprivatechat" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;lockSettingsDisablePrivateChat&quot;"/>
+        <FIELD NAME="enablenotes" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;lockSettingsDisableNote&quot;"/>
+        <FIELD NAME="visibleuserlist" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="refers to room setting &quot;lockSettingsHideUserList&quot;"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
