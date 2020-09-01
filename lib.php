@@ -711,6 +711,9 @@ function bigbluebuttonbn_process_pre_save_checkboxes(&$bigbluebuttonbn) {
     if (!isset($bigbluebuttonbn->wait)) {
         $bigbluebuttonbn->wait = 0;
     }
+    if (!isset($bigbluebuttonbn->waitingroom)) {
+        $bigbluebuttonbn->waitingroom = 0;
+    }
     if (!isset($bigbluebuttonbn->record)) {
         $bigbluebuttonbn->record = 0;
     }

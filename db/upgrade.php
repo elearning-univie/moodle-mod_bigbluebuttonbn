@@ -246,6 +246,12 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
             throw($e);
         }
     }
+    if($oldversion < 2020083100) {
+        $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+        xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'waitingroom', $fielddefinition);
+        upgrade_mod_savepoint(true, 2020083100, 'bigbluebuttonbn');
+    }
     return true;
 }
 

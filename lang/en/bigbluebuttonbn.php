@@ -169,6 +169,8 @@ $string['config_waitformoderator_ping_interval'] = 'Wait for moderator ping (sec
 $string['config_waitformoderator_ping_interval_description'] = 'When the wait for moderator feature is enabled, the client pings for the status of the session each [number] seconds. This parameter defines the interval for requests made to the Moodle server';
 $string['config_waitformoderator_cache_ttl'] = 'Wait for moderator cache TTL (seconds)';
 $string['config_waitformoderator_cache_ttl_description'] = 'To support a heavy load of clients this plugin makes use of a cache. This parameter defines the time the cache will be kept before the next request is sent to the BigBlueButton server.';
+$string['config_waitformoderator_waitingroom'] = 'Waiting room';
+$string['config_waitformoderator_waitingroom_description'] = 'The Moderator must grant the viewer, waiting in the the waiting room, approval to enter the room.';
 
 $string['config_voicebridge'] = 'Configuration for "Voice bridge" feature';
 $string['config_voicebridge_description'] = 'These settings enable or disable options in the UI and also define default values for these options.';
@@ -278,6 +280,8 @@ $string['mod_form_field_voicebridge_format_error'] = 'Format error. You should i
 $string['mod_form_field_voicebridge_notunique_error'] = 'Not a unique value. This number is being used by another room or conference.';
 $string['mod_form_field_wait'] = 'Wait for moderator';
 $string['mod_form_field_wait_help'] = 'Viewers must wait until a moderator enters the session before they can do so';
+$string['mod_form_field_waitingroom'] = '(Waiting room) Approval by the moderator must be granted before entering the room';
+$string['mod_form_field_waitingroom_help'] = 'The viewer requires the moderator\'s approval in order to enter the room.';
 $string['mod_form_field_welcome'] = 'Welcome message';
 $string['mod_form_field_welcome_help'] = 'Replaces the default message setted up for the BigBlueButton server. The message can includes keywords  (%%CONFNAME%%, %%DIALNUM%%, %%CONFNUM%%) which will be substituted automatically, and also html tags like <b>...</b> or <i></i> ';
 $string['mod_form_field_welcome_default'] = '<br>Welcome to <b>%%CONFNAME%%</b>!<br><br>For help on using BigBlueButton see these (short)  <a href="event:http://www.bigbluebutton.org/content/videos"><u>tutorial videos</u></a>.<br><br>To join the audio bridge click the phone icon (top center). <b>Please use a headset to avoid causing background noise for others.</b>';

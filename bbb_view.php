@@ -325,6 +325,10 @@ function bigbluebuttonbn_bbb_view_create_meeting_data(&$bbbsession) {
         }
     }
 
+    if ($bbbsession['bigbluebuttonbn']->waitingroom) {
+        $data['guestPolicy'] = 'ASK_MODERATOR';
+    }
+
     $data['welcome'] = trim($bbbsession['welcome']);
     // Set the duration for the meeting.
     $durationtime = bigbluebuttonbn_bbb_view_create_meeting_data_duration($bbbsession['bigbluebuttonbn']->closingtime);
