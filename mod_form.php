@@ -317,6 +317,13 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
         }
         $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
             $field['description_key'], $cfg['waitformoderator_default']);
+        $field = ['type' => 'hidden', 'name' => 'waitingroom', 'data_type' => PARAM_INT, 'description_key' => null];
+        if ($cfg['waitformoderator_waitingroom']) {
+            $field['type'] = 'checkbox';
+            $field['description_key'] = 'mod_form_field_waitingroom';
+        }
+        $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
+            $field['description_key']);
         $field = ['type' => 'hidden', 'name' => 'userlimit', 'data_type' => PARAM_INT, 'description_key' => null];
         if ($cfg['userlimit_editable']) {
             $field['type'] = 'text';
