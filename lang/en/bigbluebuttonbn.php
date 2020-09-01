@@ -170,7 +170,7 @@ $string['config_waitformoderator_ping_interval_description'] = 'When the wait fo
 $string['config_waitformoderator_cache_ttl'] = 'Wait for moderator cache TTL (seconds)';
 $string['config_waitformoderator_cache_ttl_description'] = 'To support a heavy load of clients this plugin makes use of a cache. This parameter defines the time the cache will be kept before the next request is sent to the BigBlueButton server.';
 $string['config_waitformoderator_waitingroom'] = 'Waiting room';
-$string['config_waitformoderator_waitingroom_description'] = 'The Moderator must grant the viewer, wating in the the waiting room, approval to enter the room.';
+$string['config_waitformoderator_waitingroom_description'] = 'The Moderator must grant the viewer, waiting in the the waiting room, approval to enter the room.';
 
 $string['config_voicebridge'] = 'Configuration for "Voice bridge" feature';
 $string['config_voicebridge_description'] = 'These settings enable or disable options in the UI and also define default values for these options.';
