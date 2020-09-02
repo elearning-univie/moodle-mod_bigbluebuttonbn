@@ -254,22 +254,22 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
     }
     if($oldversion < 2020090100) {
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
-            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 1, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'enableviewerswebcams', $fielddefinition);
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
-            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 1, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'enablemic', $fielddefinition);
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
-            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 1, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'enablepublicchat', $fielddefinition);
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
-            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 1, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'enableprivatechat', $fielddefinition);
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
-            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 1, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'enablenotes', $fielddefinition);
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
-            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 1, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'visibleuserlist', $fielddefinition);
         upgrade_mod_savepoint(true, 2020090100, 'bigbluebuttonbn');
     }
