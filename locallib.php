@@ -2992,6 +2992,10 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
                 $owner + $roles // CONTRIB-7966: don't use array_merge here so it does not reindex the array.
             )
         );
+        $renderer->render_group_element(
+            'participants_rights',
+            $renderer->render_group_element_checkbox('participants_rights', 1)
+            );
     }
 }
 

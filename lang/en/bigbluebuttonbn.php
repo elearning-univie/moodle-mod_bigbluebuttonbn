@@ -189,6 +189,8 @@ $string['config_participant'] = 'Participant configuration';
 $string['config_participant_description'] = 'These settings define the role by default for participants in a conference.';
 $string['config_participant_guestlink'] = 'Allow guest access links';
 $string['config_participant_guestlink_description'] = 'Allow moderator to create a guest access link for external participants.';
+$string['config_participants_rights'] = 'Allow configuration of specific participant\'s rights';
+$string['config_participants_rights_description'] = 'Allow moderator to configure specific participant\'s rights such as sharing microphone or webcam.';
 $string['config_custom_logo'] = 'Logo for the external guest access page';
 $string['config_custom_logo_description'] = 'You can change the logo for the external guest access page for external participants here. Default is the BigBlueButtonbn Logo.';
 
@@ -260,6 +262,7 @@ $string['mod_form_block_recordings'] = 'Recording settings';
 $string['mod_form_block_presentation'] = 'Presentation content';
 $string['mod_form_block_presentation_default'] = 'Presentation default content';
 $string['mod_form_block_participants'] = 'Participants';
+$string['mod_form_block_participants_rights'] = 'Participant\'s Rights';
 $string['mod_form_block_schedule'] = 'Schedule for session';
 $string['mod_form_block_record'] = 'Record settings';
 $string['mod_form_field_openingtime'] = 'Join open';
@@ -296,6 +299,15 @@ $string['mod_form_field_participant_list_action_add'] = 'Add';
 $string['mod_form_field_participant_list_action_remove'] = 'Remove';
 $string['mod_form_field_participant_bbb_role_moderator'] = 'Moderator';
 $string['mod_form_field_participant_bbb_role_viewer'] = 'Viewer';
+
+$string['mod_form_field_participants_rights_enablewebcams'] = 'Share webcam';
+$string['mod_form_field_participants_rights_seeviewerswebcams'] = 'See other viewers webcams';
+$string['mod_form_field_participants_rights_enablemic'] = 'Share microphone';
+$string['mod_form_field_participants_rights_enablepublicchat'] = 'Send public chat messages';
+$string['mod_form_field_participants_rights_enableprivatechat'] = 'Send private cat messages';
+$string['mod_form_field_participants_rights_enablenotes'] = 'Edit shared notes';
+$string['mod_form_field_participants_rights_visibleuserlist'] = 'See other viewers in the users list';
+
 $string['mod_form_field_instanceprofiles'] = 'Instance type';
 $string['mod_form_field_instanceprofiles_help'] = 'Select the type for this BigBlueButtonBN instance.';
 $string['mod_form_field_muteonstart'] = 'Mute on start';
