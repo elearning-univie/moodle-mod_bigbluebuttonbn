@@ -301,12 +301,19 @@ $string['mod_form_field_participant_bbb_role_moderator'] = 'Moderator';
 $string['mod_form_field_participant_bbb_role_viewer'] = 'Viewer';
 
 $string['mod_form_field_participants_rights_enablewebcams'] = 'Share webcam';
+$string['mod_form_field_participants_rights_enablewebcams_help'] = 'Restricts viewer\'s ability to share their webcams.';
 $string['mod_form_field_participants_rights_seeviewerswebcams'] = 'See other viewers webcams';
+$string['mod_form_field_participants_rights_seeviewerswebcams_help'] = 'When enabled, only the moderator\'s incoming webcam will be visible to viewers, while all viewers\' webcams are still visible to the moderator - this setting also reduces the bandwidth for individual viewers.';
 $string['mod_form_field_participants_rights_enablemic'] = 'Share microphone';
+$string['mod_form_field_participants_rights_enablemic_help'] = 'Restricts a viewer\'s ability to share their mic. If there are already mics joined in the session when this lock setting is applied, all joined mics will be automatically muted and locked restricting a viewer\'s ability to unmute.';
 $string['mod_form_field_participants_rights_enablepublicchat'] = 'Send public chat messages';
-$string['mod_form_field_participants_rights_enableprivatechat'] = 'Send private cat messages';
+$string['mod_form_field_participants_rights_enablepublicchat_help'] = 'Restricts viewer\'s ability to post to the public chat.';
+$string['mod_form_field_participants_rights_enableprivatechat'] = 'Send private chat messages';
+$string['mod_form_field_participants_rights_enableprivatechat_help'] = 'Restricts viewer\'s ability to send private chat messages to other viewers unless a moderator sends a private chat. Viewers can reply to private chat messages from moderators when the private chat is locked. ';
 $string['mod_form_field_participants_rights_enablenotes'] = 'Edit shared notes';
+$string['mod_form_field_participants_rights_enablenotes_help'] = 'Restricts viewer\'s ability to open and contribute to the shared notes.';
 $string['mod_form_field_participants_rights_visibleuserlist'] = 'See other viewers in the users list';
+$string['mod_form_field_participants_rights_visibleuserlist_help'] = 'Restricts viewer\'s ability to see other attendees/number of attendees in the users list. When enabled, viewers will only see their own users icon and the moderator.';
 
 $string['mod_form_field_instanceprofiles'] = 'Instance type';
 $string['mod_form_field_instanceprofiles_help'] = 'Select the type for this BigBlueButtonBN instance.';
