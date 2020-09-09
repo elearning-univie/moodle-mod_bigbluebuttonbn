@@ -314,6 +314,13 @@ function bigbluebuttonbn_bbb_view_create_meeting_data(&$bbbsession) {
               'attendeePW' => $bbbsession['viewerPW'],
               'moderatorPW' => $bbbsession['modPW'],
               'logoutURL' => $bbbsession['logoutURL'],
+              'lockSettingsDisableCam' => $bbbsession['bigbluebuttonbn']->enablewebcams ? 'false' : 'true',
+              'webcamsOnlyForModerator' => $bbbsession['bigbluebuttonbn']->seeviewerswebcams ? 'false' : 'true',
+              'lockSettingsDisableMic' => $bbbsession['bigbluebuttonbn']->enablemic ? 'false' : 'true',
+              'lockSettingsDisablePublicChat' => $bbbsession['bigbluebuttonbn']->enablepublicchat ? 'false' : 'true',
+              'lockSettingsDisablePrivateChat' => $bbbsession['bigbluebuttonbn']->enableprivatechat ? 'false' : 'true',
+              'lockSettingsDisableNote' => $bbbsession['bigbluebuttonbn']->enablenotes ? 'false' : 'true',
+              'lockSettingsHideUserList' => $bbbsession['bigbluebuttonbn']->visibleuserlist ? 'false' : 'true',
             ];
     $data['record'] = bigbluebuttonbn_bbb_view_create_meeting_data_record($bbbsession['record']);
     // Check if auto_start_record is enable.
