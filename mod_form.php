@@ -542,10 +542,10 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
             $mform->setExpanded('permissions');
     
             $field = ['type' => 'hidden', 'name' => 'enablewebcams', 'data_type' => PARAM_INT, 'description_key' => null];
-                $field['type'] = 'checkbox';
-                $field['description_key'] = 'mod_form_field_participants_rights_enablewebcams';
+            $field['type'] = 'checkbox';
+            $field['description_key'] = 'mod_form_field_participants_rights_enablewebcams';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-            $field['description_key'], $cfg['waitformoderator_default']);
+                $field['description_key'], $cfg['waitformoderator_default']);
     
             $field = ['type' => 'hidden', 'name' => 'seeviewerswebcams', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['type'] = 'checkbox';

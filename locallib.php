@@ -2995,7 +2995,7 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
         $renderer->render_group_element(
             'participants_rights',
             $renderer->render_group_element_checkbox('participants_rights', 1)
-            );
+        );
     }
 }
 
