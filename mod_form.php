@@ -540,41 +540,41 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
         if ($cfg['participants_rights']) {
             $mform->addElement('header', 'permissions', get_string('mod_form_block_participants_rights', 'bigbluebuttonbn'));
             $mform->setExpanded('permissions');
-    
-            $field = ['type' => 'checkbox', 'name' => 'enablewebcams', 'data_type' => PARAM_INT, 'description_key' => null];
-            $field['description_key'] = 'mod_form_field_participants_rights_enablewebcams';
+
+            $field = ['type' => 'checkbox', 'name' => 'enableviewerswebcams', 'data_type' => PARAM_INT, 'description_key' => null];
+            $field['description_key'] = 'mod_form_field_participants_rights_enableviewerswebcams';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
-    
+                $field['description_key']);
+
             $field = ['type' => 'checkbox', 'name' => 'seeviewerswebcams', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_seeviewerswebcams';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
-    
+                $field['description_key']);
+
             $field = ['type' => 'checkbox', 'name' => 'enablemic', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_enablemic';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
-    
+                $field['description_key']);
+
             $field = ['type' => 'checkbox', 'name' => 'enablepublicchat', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_enablepublicchat';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
-    
+                $field['description_key']);
+
             $field = ['type' => 'checkbox', 'name' => 'enableprivatechat', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_enableprivatechat';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
-    
+                $field['description_key']);
+
             $field = ['type' => 'checkbox', 'name' => 'enablenotes', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_enablenotes';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
-    
+                $field['description_key']);
+
             $field = ['type' => 'checkbox', 'name' => 'visibleuserlist', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_visibleuserlist';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['waitformoderator_default']);
+                $field['description_key']);
         }
     }
 
