@@ -314,7 +314,7 @@ function bigbluebuttonbn_bbb_view_create_meeting_data(&$bbbsession) {
               'attendeePW' => $bbbsession['viewerPW'],
               'moderatorPW' => $bbbsession['modPW'],
               'logoutURL' => $bbbsession['logoutURL'],
-              'lockSettingsDisableCam' => $bbbsession['bigbluebuttonbn']->enablewebcams ? 'false' : 'true',
+        'lockSettingsDisableCam' => $bbbsession['bigbluebuttonbn']->enableviewerswebcams ? 'false' : 'true',
               'webcamsOnlyForModerator' => $bbbsession['bigbluebuttonbn']->seeviewerswebcams ? 'false' : 'true',
               'lockSettingsDisableMic' => $bbbsession['bigbluebuttonbn']->enablemic ? 'false' : 'true',
               'lockSettingsDisablePublicChat' => $bbbsession['bigbluebuttonbn']->enablepublicchat ? 'false' : 'true',
