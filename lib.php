@@ -741,6 +741,27 @@ function bigbluebuttonbn_process_pre_save_checkboxes(&$bigbluebuttonbn) {
     if (!isset($bigbluebuttonbn->recordings_validate_url)) {
         $bigbluebuttonbn->recordings_validate_url = 1;
     }
+    if (!isset($bigbluebuttonbn->enableviewerswebcams)) {
+        $bigbluebuttonbn->enableviewerswebcams = 0;
+    }
+    if (!isset($bigbluebuttonbn->seeviewerswebcams)) {
+        $bigbluebuttonbn->seeviewerswebcams = 0;
+    }
+    if (!isset($bigbluebuttonbn->enablemic)) {
+        $bigbluebuttonbn->enablemic = 0;
+    }
+    if (!isset($bigbluebuttonbn->enablepublicchat)) {
+        $bigbluebuttonbn->enablepublicchat = 0;
+    }
+    if (!isset($bigbluebuttonbn->enableprivatechat)) {
+        $bigbluebuttonbn->enableprivatechat = 0;
+    }
+    if (!isset($bigbluebuttonbn->enablenotes)) {
+        $bigbluebuttonbn->enablenotes = 0;
+    }
+    if (!isset($bigbluebuttonbn->visibleuserlist)) {
+        $bigbluebuttonbn->visibleuserlist = 0;
+    }
 }
 
 /**

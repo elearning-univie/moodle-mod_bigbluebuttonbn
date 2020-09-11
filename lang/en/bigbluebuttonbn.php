@@ -300,8 +300,8 @@ $string['mod_form_field_participant_list_action_remove'] = 'Remove';
 $string['mod_form_field_participant_bbb_role_moderator'] = 'Moderator';
 $string['mod_form_field_participant_bbb_role_viewer'] = 'Viewer';
 
-$string['mod_form_field_participants_rights_enablewebcams'] = 'Share webcam';
-$string['mod_form_field_participants_rights_enablewebcams_help'] = 'Restricts viewer\'s ability to share their webcams.';
+$string['mod_form_field_participants_rights_enableviewerswebcams'] = 'Share webcam';
+$string['mod_form_field_participants_rights_enableviewerswebcams_help'] = 'Restricts viewer\'s ability to share their webcams.';
 $string['mod_form_field_participants_rights_seeviewerswebcams'] = 'See other viewers webcams';
 $string['mod_form_field_participants_rights_seeviewerswebcams_help'] = 'When enabled, only the moderator\'s incoming webcam will be visible to viewers, while all viewers\' webcams are still visible to the moderator - this setting also reduces the bandwidth for individual viewers.';
 $string['mod_form_field_participants_rights_enablemic'] = 'Share microphone';
