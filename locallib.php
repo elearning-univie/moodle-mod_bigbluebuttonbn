@@ -2992,13 +2992,53 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
                 $owner + $roles // CONTRIB-7966: don't use array_merge here so it does not reindex the array.
             )
         );
+    }
+}
+/**
+ * Helper function renders participant settings if the feature is enabled.
+ *
+ * @param object $renderer
+ *
+ * @return void
+ */
+function bigbluebuttonbn_settings_participants_rights(&$renderer) {
+    // Configuration for defining the default role/user that will be moderator on new activities.
+    if ((boolean) \mod_bigbluebuttonbn\settings\validator::section_moderator_default_shown()) {
+        $renderer->render_group_header('participant_rights');
         $renderer->render_group_element(
             'participants_rights',
             $renderer->render_group_element_checkbox('participants_rights', 1)
-        );
+            );
+        $renderer->render_group_element(
+            'participants_rights_enableviewerswebcams',
+            $renderer->render_group_element_checkbox('participants_rights_enableviewerswebcams', 1)
+            );
+        $renderer->render_group_element(
+            'participants_rights_seeviewerswebcams',
+            $renderer->render_group_element_checkbox('participants_rights_seeviewerswebcams', 1)
+            );
+        $renderer->render_group_element(
+            'participants_rights_enablemic',
+            $renderer->render_group_element_checkbox('participants_rights_enablemic', 1)
+            );
+        $renderer->render_group_element(
+            'participants_rights_enablepublicchat',
+            $renderer->render_group_element_checkbox('participants_rights_enablepublicchat', 1)
+            );
+        $renderer->render_group_element(
+            'participants_rights_enableprivatechat',
+            $renderer->render_group_element_checkbox('participants_rights_enableprivatechat', 1)
+            );
+        $renderer->render_group_element(
+            'participants_rights_enablenotes',
+            $renderer->render_group_element_checkbox('participants_rights_enablenotes', 1)
+            );
+        $renderer->render_group_element(
+            'participants_rights_visibleuserlist',
+            $renderer->render_group_element_checkbox('participants_rights_visibleuserlist', 1)
+            );
     }
 }
-
 /**
  * Helper function renders notification settings if the feature is enabled.
  *

@@ -52,6 +52,7 @@ if ($hassiteconfig) {
     bigbluebuttonbn_settings_userlimit($renderer);
     bigbluebuttonbn_settings_duration($renderer);
     bigbluebuttonbn_settings_participants($renderer);
+    bigbluebuttonbn_settings_participants_rights($renderer);
     bigbluebuttonbn_settings_notifications($renderer);
     bigbluebuttonbn_settings_clienttype($renderer);
     bigbluebuttonbn_settings_muteonstart($renderer);
