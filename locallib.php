@@ -3002,7 +3002,6 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
  * @return void
  */
 function bigbluebuttonbn_settings_participants_rights(&$renderer) {
-    // Configuration for defining the default role/user that will be moderator on new activities.
     if ((boolean) \mod_bigbluebuttonbn\settings\validator::section_moderator_default_shown()) {
         $renderer->render_group_header('participant_rights');
         $renderer->render_group_element(

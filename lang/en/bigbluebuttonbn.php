@@ -193,7 +193,7 @@ $string['config_custom_logo'] = 'Logo for the external guest access page';
 $string['config_custom_logo_description'] = 'You can change the logo for the external guest access page for external participants here. Default is the BigBlueButtonbn Logo.';
 
 $string['config_participant_rights'] = 'Participant\'s rights configuration';
-$string['config_participant_rights_description'] = 'These settings define the role by default for participants in a conference.';
+$string['config_participant_rights_description'] = 'These settings define the rights for participants in a conference.';
 $string['config_participants_rights'] = 'Allow configuration of specific participant\'s rights';
 $string['config_participants_rights_description'] = 'Allow moderator to configure specific participant\'s rights such as sharing microphone or webcam.';
 $string['config_participants_rights_enableviewerswebcams'] = 'Share webcam';
