@@ -81,7 +81,7 @@ if(!$valid) {
     if (bigbluebuttonbn_is_meeting_running($bbbsession['meetingid'])) {
         $bbbsession['username'] = $guestname;
         // Since the meeting is already running, we just join the session.
-        bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn);
+        bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, 0, true);
     } else {
         $pinginterval = (int)\mod_bigbluebuttonbn\locallib\config::get('waitformoderator_ping_interval') * 1000;
         echo $OUTPUT->header();
