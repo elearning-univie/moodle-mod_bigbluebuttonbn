@@ -574,7 +574,7 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
             $field = ['type' => 'checkbox', 'name' => 'visibleuserlist', 'data_type' => PARAM_INT, 'description_key' => null];
             $field['description_key'] = 'mod_form_field_participants_rights_visibleuserlist';
             $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
-                $field['description_key'], $cfg['participants_rights_enablenotes']);
+                $field['description_key'], $cfg['participants_rights_visibleuserlist']);
         }
     }
 
