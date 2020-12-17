@@ -276,6 +276,33 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'visibleuserlist', $fielddefinition);
         upgrade_mod_savepoint(true, 2020090500, 'bigbluebuttonbn');
     }
+    if ($oldversion < 2020121700) {
+
+        // Define index bigbluebuttonbn_logs_courseid (not unique) to be added to bigbluebuttonbn_logs.
+        $table = new xmldb_table('bigbluebuttonbn_logs');
+        $index = new xmldb_index('bigbluebuttonbn_logs_courseid', XMLDB_INDEX_NOTUNIQUE, ['courseid']);
+
+        // Conditionally launch add index bigbluebuttonbn_logs_courseid.
+        if (!$dbman->index_exists($table, $index)) {
+            $dbman->add_index($table, $index);
+        }
+        $index = new xmldb_index('bigbluebuttonbn_logs_log', XMLDB_INDEX_NOTUNIQUE, ['log']);
+
+        // Conditionally launch add index bigbluebuttonbn_logs_log.
+        if (!$dbman->index_exists($table, $index)) {
+            $dbman->add_index($table, $index);
+        }
+        $index = new xmldb_index('bigbluebuttonbn_logs_logrow', XMLDB_INDEX_NOTUNIQUE, ['courseid', 'bigbluebuttonbnid', 'userid', 'log']);
+
+        // Conditionally launch add index bigbluebuttonbn_logs_logrow.
+        if (!$dbman->index_exists($table, $index)) {
+            $dbman->add_index($table, $index);
+        }
+
+        // Bigbluebuttonbn savepoint reached.
+        upgrade_mod_savepoint(true, 2020121700, 'bigbluebuttonbn');
+    }
+    
     return true;
 }
 
